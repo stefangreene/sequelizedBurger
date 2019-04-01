@@ -1,7 +1,37 @@
-<h1>Butcher's Block Burger Menu!</h1>
+<div class="fluid-container" id="container">
+<h1 id="header">Butcher's Block Burger Menu!</h1>
 
-<h2>Ready to Eat!</h2>
+<div class="jumbotron" id="jumbo">
+<h2 id="add-title">Add a Burger</h2>
+<form class="new-burger" id="form">
 
+<div class="row">
+  <div class="col-sm-2"></div>
+  <div class="col-sm-4">
+    <div class="form-group" id="bump-down">
+      <label for="named-burger">Burger Name:</label>
+      <input type="text" id="named-burger" name="name">
+    </div>
+  </div>
+
+<div class="col-sm-2">
+  <div class="form-group">
+      <input type="radio" name="eaten" value="1" checked> Chow Now!<br>
+      <input type="radio" name="eaten" value="0"> Menu Item!
+    </div>
+  </div>
+<div class="col-sm-3">
+  <button class="btn btn-primary btn-lg" id="button" type="submit">Add Burger</button>
+  </div>
+  <div class="col-sm-3"></div>
+</form>
+</div>
+
+
+<div class="row">
+  <div class="col-sm-1"></div>
+<div class="col-sm-5" id="burgers">
+<h2 class="title">Burgers to Eat!</h2>
 <ul>
   {{#each burgers}}
     {{#unless eaten}}
@@ -9,9 +39,10 @@
     {{/unless}}
   {{/each}}
 </ul>
+</div>
 
-<h2>Eaten Burgers!</h2>
-
+<div class="col-sm-5">
+<h2 class="title">Burgers That Were Eaten!</h2>
 <ul>
   {{#each burgers}}
     {{#if eaten}}
@@ -19,20 +50,8 @@
     {{/if}}
   {{/each}}
 </ul>
+</div>
+<div class="col-sm-1"></div>
 
-<h2>Add a Burger</h2>
-<form class="new-burger">
-
-  <div class="form-group">
-    <label for="named-burger">Burger Name:</label>
-    <input type="text" id="#named-burger" name="name">
-  </div>
-
-  <div class="form-group">
-    <label for="eaten">Hungry? Why Wait</label><br>
-    <input type="radio" name="eaten" value="1" checked> Chow Now!<br>
-    <input type="radio" name="eaten" value="0"> Menu Item!
-  </div>
-
-  <button type="submit">Add Burger</button>
-</form>
+</div>
+</div>

@@ -6,7 +6,7 @@ var burger = {
             cb(res);
         });
     },
-    create: function(col, vals, cb){
+    create: function(cols, vals, cb){
         orm.create("burgers", cols, vals, function(res){
             cb(res);
         });
@@ -16,12 +16,12 @@ var burger = {
             cb(res);
         });
     },
-    delete: function(condiiton, cb){
+    delete: function(condition, cb){
         orm.delete("burgers", condition, function(res){
             cb(res);
         });
     }
 };
 
-//Export the database functions for the controller (burgerControll.js).
+//Export the database functions for the controller (burgerControl.js).
 module.exports = burger;

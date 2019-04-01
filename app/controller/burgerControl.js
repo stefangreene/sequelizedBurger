@@ -8,19 +8,18 @@ var burger = require("../models/burger.js");
 //........Create routes and logic.............................
 router.get("/", function(req,res){
     burger.all(function(data){
-        hbsObject = {
+        var hbsObject = {
             burgers: data
         };
-        console.log(hbsObject);
         res.render("index", hbsObject);
     });
 });
 
 router.post("/api/hamburgers", function(req,res){
     burger.create([
-        "burgers","eaten"
+        "burger","eaten"
     ], [
-        req.body.burgers, req.body.eaten
+        req.body.burger, req.body.eaten
     ], function(result){
         // Send back the ID of the new burger
         res.json({id: result.insertId});

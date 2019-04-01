@@ -27,8 +27,8 @@ $(".new-burger").on("submit", function(event){
 event.preventDefault();
 
 var newBurger = {
-    burgers: $("#named-burger").val().trim(),
-    eaten: $("[burger=eaten]:checked").val().trim()
+    burger: $("#named-burger").val().trim(),
+    eaten: $("[name=eaten]:checked").val().trim()
 };
 //......Send the POST request..................................
 $.ajax("/api/hamburgers", {

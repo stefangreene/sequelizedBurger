@@ -50,9 +50,9 @@ var orm = {
         queryString += " (";
         queryString += cols.toString();
         queryString += ") ";
-        queryString += "VALUES (";
+        queryString += "VALUES ( ";
         queryString += QuestionMarks(vals.length);
-        queryString += ") ";
+        queryString += ")";
 
         console.log(queryString);
       connection.query(queryString, function(err, result){
@@ -60,7 +60,7 @@ var orm = {
         });
     },
     update: function(table, objColVals, condition, cb){
-        var queryString = "UPDATE" + table;
+        var queryString = " UPDATE " + table;
 
         queryString += " SET " + objectToSequal(objColVals) + " WHERE " + condition;
         console.log(queryString);

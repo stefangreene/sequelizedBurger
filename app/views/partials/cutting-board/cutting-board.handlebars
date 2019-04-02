@@ -1,9 +1,9 @@
 <li>
     {{name}}
-
-    <button class="time-to-grub" data-id="{{id}}" data-eatstat="{{eaten}}">
+    <button id="eat-button1" class="clear-burger" data-id="{{id}}">Remove!</button>
+    <button id="eat-button2" class="time-to-grub" data-id="{{id}}" data-eatstat="{{eaten}}">
         {{#if eaten}}Chow Button!!{{else}}Share Button!!{{/if}}
     </button>
 
-    <button class="clear-burger" data-id="{{id}}">Remove!</button>
+    
 </li>

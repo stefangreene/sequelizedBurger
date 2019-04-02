@@ -27,7 +27,7 @@ $(".new-burger").on("submit", function(event){
 event.preventDefault();
 
 var newBurger = {
-    burger: $("#named-burger").val().trim(),
+    name: $("#named-burger").val().trim(),
     eaten: $("[name=eaten]:checked").val().trim()
 };
 //......Send the POST request..................................
@@ -45,9 +45,9 @@ $.ajax("/api/hamburgers", {
 
 $(".clear-burger").on("click", function(event){
     var id = $(this).data("id");
-
+    //console.log("button was clicked" + id);
     //.....Send the DELETE request.................
-    $.ajax("api/hamburgers/", + id, {
+    $.ajax("/api/hamburgers/" + id, {
         type: "DELETE"
     }).then(function() {
         console.log("you Eighty-Sixed the " + id + " burger.");

@@ -22,7 +22,7 @@ function objectToSequal(ob){
         if(Object.hasOwnProperty.call(ob, key)){
         //if the string has spaces, add quotations () => 'Lana Del Grey').......
         if(typeof value === "string" && value.indexOf(" ") >=0 ){
-            value = "'" + key + "'";
+            value = "'" + value + "'";
         }
         // e.g. {burger: 'Bacon Ceesburger'} => ["burger='Bacon Cheeseburger'"].
         // e.g. {eaten: false} => ["eaten=false"]
@@ -51,13 +51,16 @@ var orm = {
         queryString += cols.toString();
         queryString += ") ";
         queryString += "VALUES ( ";
-        queryString += QuestionMarks(vals.length);
+        queryString +=  QuestionMarks(vals.length);
         queryString += ")";
 
-        console.log(queryString);
-      connection.query(queryString, function(err, result){
-        if (err){throw err;}cb(result);
-        });
+        //console.log(queryString);
+        //console.log(vals);
+        
+
+      connection.query(queryString, vals, function(err, result){
+       if (err){throw err;}cb(result);
+    });
     },
     update: function(table, objColVals, condition, cb){
         var queryString = " UPDATE " + table;
@@ -68,9 +71,10 @@ var orm = {
           if (err){throw err;}cb(result);
       });
     },
-    delete: function(table, condition,cb){
+    delete: function(table, condition, cb){
         var queryString = " DELETE FROM " + table;
         queryString += " WHERE " + condition;
+        console.log(queryString);
       connection.query(queryString, function(err,result){
             if (err){throw err;}cb(result);
         });

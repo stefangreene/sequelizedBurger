@@ -11,15 +11,23 @@ router.get("/", function(req,res){
         var hbsObject = {
             burgers: data
         };
+        //console.log(hbsObject);
+        //console.log({burgers: data});
         res.render("index", hbsObject);
+    });
+});
+
+router.get("/api/hamburgers", function (req,res){
+    burger.all(function(data){
+        res.json(data);
     });
 });
 
 router.post("/api/hamburgers", function(req,res){
     burger.create([
-        "burger","eaten"
+        "name","eaten"
     ], [
-        req.body.burger, req.body.eaten
+        req.body.name, req.body.eaten
     ], function(result){
         // Send back the ID of the new burger
         res.json({id: result.insertId});
@@ -45,11 +53,12 @@ burger.update({
 
 router.delete("/api/hamburgers/:id", function(req,res){
     var condition = " id = " + req.params.id;
-
-    console.log("condition: " + conditon);
+    //console.log(req.params.id);
+    //console.log(condition);
+    console.log("condition: " + condition);
 
     burger.delete(condition, function(result){
-        if( result. affectedRows == 0){
+        if(result.affectedRows == 0){
         //....If no rows were changed, ID must not exist, (404)......
         return res.status(404).end();
         }   else{

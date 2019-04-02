@@ -15,14 +15,15 @@ if(process.env.JAWSDB_URL){
 }
 
 //...................Make connection.........................
-//connection.connect();
-connection.connect(function(err){
+connection.connect();
+/*connection.connect(function(err){
     if (err){
         console.log("error connecting: " + err.stack);
         return;
     }
     console.log("connected as ID: " + connection.threadId);
 });
+*/
 
 //........Export connection for our ORM to use...............
 module.exports = connection;

@@ -1,0 +1,33 @@
+{
+  "name": "sequelized_burger",
+  "version": "1.0.0",
+  "description": "burger eating website BEEFCAKES",
+  "main": "server.js",
+  "scripts": {
+    "test": "test tester",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stefangreene/sequelizedBurger.git"
+  },
+  "keywords": [
+    "burger",
+    "burgers",
+    "eat",
+    "buns",
+    "mayo"
+  ],
+  "author": "Stefan Greene",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/stefangreene/sequelizedBurger/issues"
+  },
+  "homepage": "https://github.com/stefangreene/sequelizedBurger#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.2",
+    "mysql": "^2.16.0"
+  }
+}
